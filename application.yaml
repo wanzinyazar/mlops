@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/wanzinyazar/ML_OPS.git
+    repoURL: https://github.com/wanzinyazar/mlops.git
     targetRevision: HEAD
     path: ml_ops
   destination: 
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: wanzin_argocd
 
   syncPolicy:
     syncOptions:
