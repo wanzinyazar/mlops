@@ -11,7 +11,7 @@ spec:
     path: ml_ops
   destination: 
     server: https://kubernetes.default.svc
-    namespace: wanzin_argocd
+    namespace: argocd
 
   syncPolicy:
     syncOptions:
