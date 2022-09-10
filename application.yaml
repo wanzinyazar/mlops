@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -17,7 +18,28 @@ spec:
     - CreateNamespace=true  
     automated:
       selfHeal: true
-      
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-workflows
+  namespace: argocd
+  labels:
+    name: argo-workflows
+  spec:
+    project: default
+    source:
+      repoURL: https://argoproj.github.io/argo-helm
+      targetRevision: 'v3.3.9'
+      chart: argo-workflows
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: argocd
+    syncPolicy:
+      syncOptions:
+      - CreateNamespace=true
+      automated:
+        selfHeal: true
     
       
 
