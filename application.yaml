@@ -62,8 +62,29 @@ spec:
     - CreateNamespace=true
     automated:
       selfHeal: true
-  
-    
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubeflow
+  namespace: argocd
+  labels:
+    name: kubeflow
+spec:
+  project: default
+  source:
+    repoURL: https://alauda.github.io
+    targetRevision: '1.5.0'
+    chart: kubeflow
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+---   
       
 
       
